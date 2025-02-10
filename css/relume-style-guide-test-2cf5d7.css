@@ -1624,6 +1624,8 @@ figcaption {
   color: var(--base-color-brand--blue);
   min-height: 80vh;
   position: relative;
+  height: auto;
+  widht: 100%;
 }
 
 .header_content {

@@ -36,6 +36,28 @@
   --link-color--link-secondary: var(--base-color-brand--grey);
 }
 
+/* BODY-TEXT: Calluna */
+body {
+  font-family: "calluna", serif;
+  line-height: 1.6; /* För bra läsbarhet */
+}
+
+/* HEADINGS & BUTTONS: Din Condensed */
+h1, h2, h3, h4, h5, h6, button {
+  font-family: "din-condensed", sans-serif;
+  text-transform: uppercase; /* Valfritt, men ofta snyggt för rubriker */
+}
+
+/* Extra stil för knappar */
+button {
+  letter-spacing: 1px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-family: "din-condensed", sans-serif;
+
+}
+
 .w-layout-grid {
   grid-row-gap: 16px;
   grid-column-gap: 16px;
@@ -1983,7 +2005,7 @@ figcaption {
 
 ._04_background-image-wrapper {
   z-index: 0;
-  aspect-ratio: 2500 / 3333;
+  aspect-ratio: 1.5 / 1;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -2017,7 +2039,6 @@ figcaption {
   object-fit: cover;
   width: 100%;
   min-height: 120%;
-  aspect-ratio: 1250/833;
   position: absolute;
   inset: 0% 0% -20%;
 }

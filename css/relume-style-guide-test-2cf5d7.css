@@ -2009,21 +2009,22 @@ figcaption {
 }
 
 .section_image {
-  min-height: 80vh;
   position: relative;
 }
 
 ._04_background-image-wrapper {
   z-index: 0;
   aspect-ratio: 2500 / 3333;
-  width: 100%;
+  width: 100vw;
   position: relative;
   overflow: hidden;
+  max-height: 50rem;
 }
 
 ._04_background-image {
   object-fit: cover;
-  width: 100%;
+  width: 100vw;
+  max-height: 50rem;
 }
 
 .hero-foreground-image {
@@ -2104,8 +2105,7 @@ figcaption {
 
 
   .background-image-wrapper {
-  aspect-ratio: auto;
-    min-height: 90vh;
+  aspect-ratio: 3/2;
 }
   
 
@@ -2782,8 +2782,14 @@ figcaption {
 }
 
 @media screen and (max-width: 479px) {
+  .background-image-wrapper {
+    aspect-ratio: 1/1;
+  }
+
+  04
+  
   h1 {
-    font-size: 2.5rem;
+    font-size: 4.5rem;
   }
 
   .hide-mobile-portrait {

@@ -1977,7 +1977,7 @@ figcaption {
 }
 
 .section_image {
-  min-height: 70vh;
+  min-height: 80vh;
   position: relative;
 }
 
@@ -2016,7 +2016,8 @@ figcaption {
 .hero-background-image {
   object-fit: cover;
   width: 100%;
-  height: 120%;
+  min-height: 120%;
+  aspect-ratio: 1250/833;
   position: absolute;
   inset: 0% 0% -20%;
 }

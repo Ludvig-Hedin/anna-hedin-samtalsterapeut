@@ -109,9 +109,16 @@ p {
   line-height: 170%;
 }
 
+.button {
+  font-family: "din-condensed", sans-serif;
+}
+
+
 a {
   color: var(--link-color--link-primary);
   text-decoration: underline;
+  font-family: "din-condensed", sans-serif;
+
 }
 
 /* Extra stil för knappar */

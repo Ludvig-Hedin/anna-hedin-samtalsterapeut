@@ -48,6 +48,10 @@ document.addEventListener("DOMContentLoaded", () => {
   <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.23/bundled/lenis.min.js"></script>
   <script>
 "use strict"; // fix lenis in safari
+// Kolla om skärmen är bredare än 1024px och aktivera Lenis
+    if (window.matchMedia("(min-width: 1025px)").matches) {
+        enableLenis();
+	  
 if (Webflow.env("editor") === undefined) {
   const lenis = new Lenis({
     lerp: 0.1,
@@ -87,6 +91,9 @@ if (Webflow.env("editor") === undefined) {
 }
 </script>
   <!--  End Lenis Smooth Scroll  -->
+
+
+	
 </head>
 <body>
   <div class="page-wrapper">

@@ -2005,6 +2005,7 @@ figcaption {
 .section_04, .section_03 {
   background-color: var(--background-color--background-primary);
   color: var(--text-color--text-primary);
+  overflow: hidden;
 }
 
 .section_image {
@@ -2014,7 +2015,7 @@ figcaption {
 ._04_background-image-wrapper {
   z-index: 0;
   aspect-ratio: 2500 / 3333;
-  width: 100vw;
+  width: 100%;
   position: relative;
   overflow: hidden;
   max-height: 50rem;
@@ -2022,7 +2023,7 @@ figcaption {
 
 ._04_background-image {
   object-fit: cover;
-  width: 100vw;
+  width: 100%;
   max-height: 50rem;
 }
 

@@ -1675,6 +1675,7 @@ figcaption {
   overflow: hidden;
   position: relative;
   aspect-ratio: 1.5/1
+  max-height: 50rem;
 }
 
 .image-overlay-layer {
@@ -1689,8 +1690,9 @@ figcaption {
   width: 100%;
   height: 120%;
   display: block;
-  position: absolute;
+  position: relative;
   inset: 0% 0% -20%;
+  bottom: -20%
 }
 
 .section_01, .section_02 {
@@ -2459,18 +2461,23 @@ figcaption {
     margin-top: 1.5rem;
     margin-left: 0;
     margin-right: 0;
+    
   }
 
   .navbar_menu-background {
-    z-index: 0;
+    z-index: 1;
     background-color: #00000080;
-    width: 100vw;
+    backdrop-filter: blur(10px);
+    width: 20vw;
     height: 100vh;
     padding-bottom: 0;
     padding-right: 0;
     display: none;
     position: absolute;
     inset: 0%;
+    top: 0;
+    bottom: 0;
+    right: 0;
   }
 
   .blur_9-wrapper {

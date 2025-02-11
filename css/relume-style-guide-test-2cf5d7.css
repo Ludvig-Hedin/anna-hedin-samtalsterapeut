@@ -1675,6 +1675,7 @@ figcaption {
   position: relative;
   aspect-ratio: 1.5/1
   max-height: 50rem;
+  min-height: 30vh;
 }
 
 .image-overlay-layer {

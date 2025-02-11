@@ -28,68 +28,77 @@ html.w-editor [animation-fade-blur], [animation-fade] {
   visibility: visible;
 }
 </style>
-  <!--  Lenis Smooth Scroll  -->
-  <script src="https://unpkg.com/@studio-freight/lenis@latest"></script>
-  <script>
+
+
+<!--  Lenis Smooth Scroll  -->
+<script src="https://unpkg.com/@studio-freight/lenis@latest"></script>
+<script>
 document.addEventListener("DOMContentLoaded", () => {
-    const lenis = new Lenis({
-        duration: 1.4, // Scrollens hastighet (1 = normal, >1 = långsammare)
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Smidig easing
-        smooth: true,
-        smoothTouch: true,
-    });
-    function raf(time) {
-        lenis.raf(time);
+    if (window.matchMedia("(min-width: 768px)").matches) { // Aktivera Lenis endast på Tablet och Desktop
+        const lenis = new Lenis({
+            duration: 1.4, // Scrollens hastighet (1 = normal, >1 = långsammare)
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Smidig easing
+            smooth: true,
+            smoothTouch: true,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
         requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
 });
 </script>
-  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.23/bundled/lenis.min.js"></script>
-  <script>
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.23/bundled/lenis.min.js"></script>
+<script>
 "use strict"; // fix lenis in safari
-// Kolla om skärmen är bredare än 1024px och aktivera Lenis
-    if (window.matchMedia("(min-width: 1025px)").matches) {
-        enableLenis();
-	  
-if (Webflow.env("editor") === undefined) {
-  const lenis = new Lenis({
-    lerp: 0.1,
-    wheelMultiplier: 0.9,
-    infinite: false,
-    gestureOrientation: "vertical",
-    normalizeWheel: false,
-    smoothTouch: false
-  });
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
-  $("[data-lenis-start]").on("click", function () {
-    lenis.start();
-  });
-  $("[data-lenis-stop]").on("click", function () {
-    lenis.stop();
-  });
-  $("[data-lenis-toggle]").on("click", function () {
-    $(this).toggleClass("stop-scroll");
-    if ($(this).hasClass("stop-scroll")) {
-      lenis.stop();
-    } else {
-      lenis.start();
+
+// Kolla om skärmen är bredare än 768px och aktivera Lenis
+if (window.matchMedia("(min-width: 768px)").matches) {
+    if (Webflow.env("editor") === undefined) {
+        const lenis = new Lenis({
+            lerp: 0.1,
+            wheelMultiplier: 0.9,
+            infinite: false,
+            gestureOrientation: "vertical",
+            normalizeWheel: false,
+            smoothTouch: false
+        });
+        
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+        
+        $("[data-lenis-start]").on("click", function () {
+            lenis.start();
+        });
+        
+        $("[data-lenis-stop]").on("click", function () {
+            lenis.stop();
+        });
+        
+        $("[data-lenis-toggle]").on("click", function () {
+            $(this).toggleClass("stop-scroll");
+            if ($(this).hasClass("stop-scroll")) {
+                lenis.stop();
+            } else {
+                lenis.start();
+            }
+        });
+        
+        function connectToScrollTrigger() {
+            lenis.on("scroll", ScrollTrigger.update);
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+        }
     }
-  });
-  function connectToScrollTrigger() {
-    lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-  }
-  // Uncomment this if using GSAP ScrollTrigger
-  // connectToScrollTrigger();
 }
 </script>
+
   <!--  End Lenis Smooth Scroll  -->
 
 

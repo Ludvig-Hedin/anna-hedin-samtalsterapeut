@@ -1671,7 +1671,6 @@ figcaption {
 
 .background-image-wrapper {
   z-index: 0;
-  inset: 0%;
   overflow: hidden;
   position: relative;
   aspect-ratio: 1.5/1

@@ -4,69 +4,91 @@ Importerbart SnabbSajt-paket byggt från den befintliga Webflow-sidan
 (`../index.html`, = live annahedin.com) med
 [Site Kit](https://snabbsajt.com/docs/en/developer/site-kit).
 
-Byggt om 2026-07-29 efter att den första importen bara låg på ~50 % likhet.
-Orsakerna och vad som ändrades står under "Vad som var fel" nedan.
+## Två bundles – välj efter om appen är deployad
 
-## Innehåll
+| Fil | Kräver | Typsnitt | Ungefärlig träff |
+|---|---|---|---|
+| `../annahedin-snabbsajt-2026-07-30-compatible.zip` | Inget – funkar mot produktionen som den står nu | Oswald + Source Serif 4 (Google) | ~90 % |
+| `../annahedin-snabbsajt-2026-07-30-full.zip` | En deploy av SnabbSajt (se nedan) **och** att Adobe-kitet släpper in domänen | `din-condensed` + `calluna` (Adobe `wyt4frb`) | ~97 % |
 
-- `site.json` – hela sajten som typade SnabbSajt-sektioner (`PortableSiteV1`)
-- `assets/` – bilder, byte-identiska med `../images/`
-- Färdig bundle: `../annahedin-snabbsajt.zip`
+`full` använder fyra saker som finns i appens kod men **inte i den deployade
+validatorn** – importen avvisas tills SnabbSajt är deployad:
 
-## Importera till SnabbSajt
+- `theme.headingCase: "uppercase"`
+- `hero` / `overlay-light`
+- `rich-text` / `columns`
+- `eyebrow` på `rich-text`, `pricing` och `contact`
 
-1. Logga in på snabbsajt.com.
-2. **Settings → Backup & move → Import**.
-3. Ladda upp `annahedin-snabbsajt.zip`.
-4. Importen skapar ett **opublicerat utkast** (publicerar aldrig automatiskt).
-5. Granska på mobil/desktop, justera vid behov, publicera.
-
-## Bygga om paketet
+Testa själv vilken som går igenom idag:
 
 ```bash
 SDK=~/Programming/personal/LA_DESIGN/projekt/simple-site-builder/Sajtbuilder-SDK
-node $SDK/dist/cli.js validate ./snabbsajt-site
-node $SDK/dist/cli.js pack ./snabbsajt-site -o annahedin-snabbsajt.zip
+node $SDK/dist/cli.js validate ./snabbsajt-site   # = den deployade validatorn
 ```
 
-`dist/` i SDK:n är byggd från äldre källkod än sitt eget kontrakt. Det används
-avsiktligt som lägstanivå här: paketet håller sig till den *äldre* vokabulären
-(block bara `h`/`p`/`ul` med rena strängar, inga heading-nivåer, inga
-inline-länkar), så det importeras oavsett vilken validator som ligger ute i
-produktion.
+## Adobe-kitet
 
-## Vad som var fel i den första versionen
+Kit `wyt4frb` är låst till `annahedin.com`. Lägg till snabbsajt-domänen på
+fonts.adobe.com, annars faller `din-condensed` och `calluna` tillbaka på
+SnabbSajts egna typsnitt. `compatible`-bundlen använder Google-motsvarigheter
+just för att slippa det beroendet.
 
-| Problem | Nu |
-|---|---|
-| **Rubrikfontet var Open Sans.** Originalets rubriker är `din-condensed` (versal, smal). Open Sans är bred humanist – helt annat intryck. | `customFonts.heading = "din-condensed"`, deklarerad som Adobe-font från kit `wyt4frb` |
-| Brödtexten `calluna` deklarerad men rubrikfontet saknade kit → bara halva typografin laddade | Båda fonterna hämtas från samma kit `wyt4frb` |
-| **All text var omskriven/förkortad**, inte kopierad | Varje stycke är nu ordagrant från `../index.html` |
-| **Påhittad sektion** "Så går det till" (3 steg) som inte finns i originalet | Borttagen |
-| Originalets `.02 process` (4 block: Vi möts / SE / Samtalsterapi / Familjekonstellationer) hade kortats ned till 3 `services`-kort | Ett `rich-text`-avsnitt med rubriken `process` och alla fyra block i sin helhet |
-| **Påhittad hero-eyebrow + två CTA-knappar** | Borttagna. Originalet har bara H1 + underrubrik |
-| **Citatet saknade upphovsperson** | `attribution: "- Jon Kabat-Zinn"` |
-| **Påhittat kontaktformulär.** Originalet har inget formulär, bara länkar | `contact` / `info-cards` med e-post, telefon, Facebook och MötesRum-adressen |
-| Priserna hade fått påhittade punktlistor | Originalets två prosabeskrivningar, 575 kr och 1150 kr/tim |
-| "Utbildning & erfarenhet" var en påhittad egen rubrik | Ligger under `Om mig`, som i originalet |
-| Porträttet låg i `about` / `text-image` → beskuret 4:3 vid sidan av texten | Text först, bild under (`image` / `inset`), som originalet stackar dem |
-| `mutedFg` satt till `#666666` | Uppmätt på live-sajten: `#8c8c92` |
-| Kortkanter syntes runt prisblocken | `cardBorder` = `#fefefe`, dvs osynlig – originalet har inga kort |
+## Innehåll
+
+- `site.json` – hela sajten som typade SnabbSajt-sektioner (`PortableSiteV1`).
+  Detta är `full`-varianten.
+- `assets/` – bilder, byte-identiska med `../images/`
+
+## Importera
+
+1. Logga in på snabbsajt.com.
+2. **Settings → Backup & move → Import**.
+3. Ladda upp vald zip.
+4. Importen skapar ett **opublicerat utkast** (publicerar aldrig automatiskt).
+5. Granska på mobil/desktop, justera, publicera.
+
+## Bygga om
+
+Validera och packa med appens egen CLI – den kör exakt de validatorer servern kör:
+
+```bash
+APP=~/Programming/personal/LA_DESIGN/projekt/simple-site-builder
+cd $APP && bun scripts/site-kit.ts validate <paket-mapp>
+cd $APP && bun scripts/site-kit.ts pack <paket-mapp> -o <ut.zip>
+```
+
+`compatible`-varianten byggs från samma mapp med dessa ändringar:
+
+- `theme.headingCase` bort, rubriktexterna versalskrivna i innehållet i stället
+- `eyebrow` bort på alla sektioner
+- `hero` tillbaka till `overlay` med `tone: "dark"`
+- `rich-text` / `columns` tillbaka till `prose`
+- `customFonts` + `fonts[]` till Oswald / Source Serif 4:
+
+```json
+"customFonts": { "heading": "Oswald", "body": "Source Serif 4" },
+"fonts": [
+  { "tmpId": "heading", "source": "google", "family": "Oswald",
+    "googleUrl": "https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap" },
+  { "tmpId": "body", "source": "google", "family": "Source Serif 4",
+    "googleUrl": "https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap" }
+]
+```
 
 ## Sidstruktur (samma ordning som originalet)
 
-| # | Original | SnabbSajt-sektion |
+| Original | SnabbSajt-sektion | Eyebrow |
 |---|---|---|
-| 1 | header, H1 över helbildsfoto | `hero` / `overlay` |
-| 2 | `.01 samtalsterapi` | `rich-text` / `prose` |
-| 3 | helbredds-bild | `image` / `full` |
-| 4 | `.02 process` | `rich-text` / `prose` |
-| 5 | citat | `statement` / `centered` |
-| 6 | `.03 Priser` | `pricing` / `two-col` (`#pricing`) |
-| 7 | `.04 Om mig` | `rich-text` / `narrow` (`#about`) |
-| 8 | porträtt | `image` / `inset` |
-| 9 | `.05 kontakta mig` | `contact` / `info-cards` (`#kontakt`) |
-| – | (finns inte i originalet) | `footer` / `contact` |
+| header, H1 över helbildsfoto | `hero` / `overlay-light` | – |
+| `.01 samtalsterapi` | `rich-text` / `prose` | `.01` |
+| helbredds-bild | `image` / `full` | – |
+| `.02 process` (2-kolumnsrutnät) | `rich-text` / `columns` | `.02` |
+| citat | `statement` / `centered` | – |
+| `.03 Priser` | `pricing` / `two-col` (`#pricing`) | `.03` |
+| `.04 Om mig` | `rich-text` / `narrow` (`#about`) | `.04` |
+| porträtt | `image` / `inset` | – |
+| `.05 kontakta mig` | `contact` / `info-cards` (`#kontakt`) | `.05` |
+| (finns inte i originalet) | `footer` / `contact` | – |
 
 ## Tema – uppmätt på live-sajten
 
@@ -79,39 +101,36 @@ produktion.
 | Tonad yta | `#eeeeee` | `--_primitives---colors--neutral-lightest` |
 | Linjer | `#161616` | `.divider` |
 | Radie | `sharp` (0) | `--_ui-styles---radius--*: 0px` |
-| Rubriker | `din-condensed` (Adobe `wyt4frb`) | `--_typography---font-styles--heading` |
-| Brödtext | `calluna` (Adobe `wyt4frb`) | `--_typography---font-styles--body` |
+| Rubriker | `din-condensed`, VERSALER | `--_typography---font-styles--heading` + `text-transform` |
+| Brödtext | `calluna` | `--_typography---font-styles--body` |
 | Sektionsluft | 112 px | `.padding-section-large` → `density: spacious` |
 
-## Kända avvikelser
+## Ändringar i SnabbSajt-appen för det här
 
-- **Adobe-kitet måste släppa in snabbsajt-domänen.** Kit `wyt4frb` är låst till
-  `annahedin.com`. Tills domänen läggs till på fonts.adobe.com faller både
-  `din-condensed` och `calluna` tillbaka på SnabbSajts egna typsnitt. Detta är
-  det enskilt största kvarvarande gapet mot originalet. Alternativ utan Adobe:
-  byt till Google-motsvarigheter i editorn (t.ex. Oswald för rubrik,
-  Source Serif 4 för brödtext).
-- **Originalet har två rubrikfonter**, SnabbSajt har ett. H1 i hero och citatet
-  är Open Sans på originalet, allt annat `din-condensed`. Paketet väljer
-  `din-condensed` eftersom det används av alla sektionsrubriker, knappar och
-  priser.
-- **Versalerna följer inte med.** Originalets `h2`–`h6` har
-  `text-transform: uppercase` via CSS. SnabbSajt har ingen sådan tema-token, så
-  rubrikerna renderas med källans skiftläge.
-- **Hero får en mörk toning.** SnabbSajts `overlay`-hero lägger vit text på en
-  scrim; originalet har mörkblå text direkt på det ljusa fotot.
-- **`.02 process` blir en spalt, inte två.** Originalet är ett 2-kolumnsrutnät.
-  `services`/`highlights` skulle ge två spalter men klipper beskrivningen
-  (`line-clamp-4`) respektive tappar styckeindelningen – texten väger tyngre.
-- **Länkarna i `.02` är inte klickbara** (seforeningen.se,
+Alla fyra är generella produktförbättringar, inte hack för den här sajten:
+
+| Ändring | Varför |
+|---|---|
+| `image`-sektionen följer bildens egna proportioner | Tvingade 16:9 och beskar porträttet (3:4) till en remsa |
+| `theme.headingCase` | Originalets rubriker är versala via CSS. Utan token måste versalerna bakas in i texten, och då måste Anna skriva versalt för alltid |
+| `hero` / `overlay-light` | `overlay` lägger vit text på en mörk toning. Originalet har mörkblå text direkt på ett ljust foto |
+| `rich-text` / `columns` | `.02 process` är ett 2-kolumnsrutnät. `services`/`highlights` ger två spalter men klipper texten (`line-clamp-4`) respektive tappar styckeindelningen |
+| `eyebrow` på `rich-text`/`pricing`/`contact` | Originalets `.01`–`.05` ovanför varje rubrik |
+
+Hero-rubriken är undantagen från `headingCase`: `Anna Hedin` är inte versalt i
+originalet heller.
+
+## Kvarvarande avvikelser
+
+- **Originalet har två rubrikfonter.** H1 i hero och citatet är Open Sans,
+  allt annat `din-condensed`. SnabbSajt har ett rubrikfont; paketet väljer
+  `din-condensed` (alla sektionsrubriker, knappar och priser).
+- **Länkarna i `process` är inte klickbara** (seforeningen.se,
   somaticexperiencing.com, hellinger.com). Adressen står som text. Rich
-  text-länkar landade i appen 2026-07-29 men är inte garanterat utrullade –
-  lägg till länkarna i editorn när de är det.
-- **Sektionsnumreringen (`.01`–`.05`) följer inte med.** SnabbSajt har ingen
-  eyebrow på textsektioner.
+  text-länkar finns i appen sedan 2026-07-29 men paketet håller sig till den
+  äldre blockvokabulären; lägg till länkarna i editorn efter importen.
 - Webflow-animationer (GSAP/ScrollTrigger, parallax på citatet) ingår inte.
 - Stavfelet "Cerifierad Coach enligt ICC" är kvar ordagrant från originalet.
-  Rätta i editorn om Anna vill.
 
 ## Varför inte 100 %
 

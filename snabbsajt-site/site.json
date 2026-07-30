@@ -51,7 +51,8 @@
           "cardFg": "#eeeeee",
           "cardBorder": "#1c1c1c"
         }
-      }
+      },
+      "headingCase": "uppercase"
     },
     "contact": {
       "email": "annahedin.samtal@gmail.com",
@@ -86,8 +87,8 @@
     {
       "pageTmpId": "home",
       "type": "hero",
-      "variant": "overlay",
-      "tone": "dark",
+      "variant": "overlay-light",
+      "tone": "light",
       "content": {
         "headline": "Anna Hedin",
         "subheadline": "Terapeut & Livscoach",
@@ -114,7 +115,8 @@
             "text": "Jag erbjuder enskilda sessioner med utforskande samtal i närvaro och engagemang för dig som önskar en förändring i livet."
           }
         ],
-        "type": "rich-text"
+        "type": "rich-text",
+        "eyebrow": ".01"
       },
       "tone": "light"
     },
@@ -134,7 +136,7 @@
     {
       "pageTmpId": "home",
       "type": "rich-text",
-      "variant": "prose",
+      "variant": "columns",
       "content": {
         "heading": "process",
         "blocks": [
@@ -164,7 +166,7 @@
           },
           {
             "kind": "h",
-            "text": "Samtalsterapi"
+            "text": "samtalsterapi"
           },
           {
             "kind": "p",
@@ -191,7 +193,8 @@
             "text": "Läs mer på: www.hellinger.com/en/family-constellation/"
           }
         ],
-        "type": "rich-text"
+        "type": "rich-text",
+        "eyebrow": ".02"
       },
       "tone": "light"
     },
@@ -201,7 +204,7 @@
       "variant": "centered",
       "content": {
         "text": "“You can’t stop the waves but you can learn how to surf”",
-        "attribution": "- Jon Kabat-Zinn",
+        "attribution": "- JON KABAT-ZINN",
         "type": "statement"
       },
       "tone": "light"
@@ -223,7 +226,7 @@
             ]
           },
           {
-            "name": "Samtalsterapi",
+            "name": "samtalsterapi",
             "price": "1150",
             "period": "/tim",
             "features": [
@@ -231,7 +234,8 @@
             ]
           }
         ],
-        "type": "pricing"
+        "type": "pricing",
+        "eyebrow": ".03"
       },
       "tone": "light"
     },
@@ -274,7 +278,8 @@
             ]
           }
         ],
-        "type": "rich-text"
+        "type": "rich-text",
+        "eyebrow": ".04"
       },
       "tone": "light"
     },
@@ -361,7 +366,8 @@
             }
           }
         ],
-        "type": "contact"
+        "type": "contact",
+        "eyebrow": ".05"
       },
       "tone": "light"
     },

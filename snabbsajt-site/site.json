@@ -1,0 +1,446 @@
+{
+  "format": "sajt-site",
+  "version": 1,
+  "exportedAt": "2026-07-29T00:00:00.000Z",
+  "site": {
+    "businessName": "Anna Hedin – Samtalsterapeut",
+    "vertical": "coach",
+    "goal": "get_bookings",
+    "language": "sv",
+    "theme": {
+      "palette": "midnight",
+      "fontPair": "modern",
+      "density": "spacious",
+      "radius": "sharp",
+      "buttonStyle": "solid",
+      "appearance": "light",
+      "typeScale": "normal",
+      "customBrandHex": "#112032",
+      "customFonts": {
+        "heading": "din-condensed",
+        "body": "calluna"
+      },
+      "customPalette": {
+        "light": {
+          "bg": "#fefefe",
+          "fg": "#161616",
+          "muted": "#eeeeee",
+          "mutedFg": "#8c8c92",
+          "primary": "#112032",
+          "primaryFg": "#fefefe",
+          "primaryText": "#112032",
+          "accent": "#eeeeee",
+          "accentFg": "#161616",
+          "border": "#161616",
+          "card": "#fefefe",
+          "cardFg": "#161616",
+          "cardBorder": "#fefefe"
+        },
+        "dark": {
+          "bg": "#161616",
+          "fg": "#eeeeee",
+          "muted": "#222222",
+          "mutedFg": "#aaaaaa",
+          "primary": "#fefefe",
+          "primaryFg": "#112032",
+          "primaryText": "#ffffff",
+          "accent": "#222222",
+          "accentFg": "#eeeeee",
+          "border": "#444444",
+          "card": "#1c1c1c",
+          "cardFg": "#eeeeee",
+          "cardBorder": "#1c1c1c"
+        }
+      }
+    },
+    "contact": {
+      "email": "annahedin.samtal@gmail.com",
+      "phone": "+46708178984",
+      "address": {
+        "street": "Luntmakargatan 52",
+        "city": "Stockholm",
+        "country": "Sverige"
+      }
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/annahedinsamtalsterapeut"
+    },
+    "logoAssetId": "logo",
+    "faviconAssetId": "favicon"
+  },
+  "folders": [],
+  "pages": [
+    {
+      "tmpId": "home",
+      "slug": "",
+      "title": "Anna Hedin - Samtalsterapeut",
+      "order": 0,
+      "showInNav": true,
+      "seo": {
+        "metaTitle": "Anna Hedin - Samtalsterapeut",
+        "metaDescription": "Samtalsterapi, Somatic Experiencing och familjekonstellationer i centrala Stockholm. Enskilda sessioner för dig som önskar en förändring i livet."
+      }
+    }
+  ],
+  "sections": [
+    {
+      "pageTmpId": "home",
+      "type": "hero",
+      "variant": "overlay",
+      "tone": "dark",
+      "content": {
+        "headline": "Anna Hedin",
+        "subheadline": "Terapeut & Livscoach",
+        "media": {
+          "assetId": "hero",
+          "alt": "Hjärta av trä på stenar vid havet i solnedgång"
+        },
+        "type": "hero"
+      }
+    },
+    {
+      "pageTmpId": "home",
+      "type": "rich-text",
+      "variant": "prose",
+      "content": {
+        "heading": "samtalsterapi",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "En längtan efter förändring är ofta en drivkraft till att börja i samtalsterapi. Du kanske brottas med grundläggande livsfrågor och har ett behov av att reflektera över dessa. Eller befinner dig i livsförändringar som du inte har valt. Svårigheter och mönster som man bär med sig och upprepar kan vara svårt att upptäcka och förändra själv."
+          },
+          {
+            "kind": "p",
+            "text": "Jag erbjuder enskilda sessioner med utforskande samtal i närvaro och engagemang för dig som önskar en förändring i livet."
+          }
+        ],
+        "type": "rich-text"
+      },
+      "tone": "light"
+    },
+    {
+      "pageTmpId": "home",
+      "type": "image",
+      "variant": "full",
+      "content": {
+        "image": {
+          "assetId": "banner",
+          "alt": "Stilla vatten i soluppgång"
+        },
+        "type": "image"
+      },
+      "tone": "light"
+    },
+    {
+      "pageTmpId": "home",
+      "type": "rich-text",
+      "variant": "prose",
+      "content": {
+        "heading": "process",
+        "blocks": [
+          {
+            "kind": "h",
+            "text": "Vi möts"
+          },
+          {
+            "kind": "p",
+            "text": "För ett första inledande samtal. Därefter bestämmer vi tillsammans hur ett fortsatt samarbete kan se ut. Samtalen varar i 45 minuter och utgår från nuet och din aktuella livssituation. Jag arbetar med samtalsterapi på psykodynamisk grund samt Somatic Experiencing, där vi involverar kroppens upplevelser i samtalet."
+          },
+          {
+            "kind": "h",
+            "text": "Somatic Experiencing (SE)"
+          },
+          {
+            "kind": "p",
+            "text": "Somatic Experiencing är en kroppsorienterad metod som bearbetar trauman och andra stresstillstånd. Samtalet fokuserar på kroppens egen förmåga till reglering för att lösa upp stress, oro, ångest och andra symtom. SE kan även användas effektivt vid behandling av anknytningstrauma."
+          },
+          {
+            "kind": "p",
+            "text": "Behandlingsmetoden är utvecklad av Peter Levine PhD, som har doktorsgrad i psykologi, medicinsk och biologisk fysik. Peter Levine har under 40 år forskat och arbetat med stress och trauma."
+          },
+          {
+            "kind": "p",
+            "text": "Läs mer: www.seforeningen.se, www.somaticexperiencing.com"
+          },
+          {
+            "kind": "h",
+            "text": "Samtalsterapi"
+          },
+          {
+            "kind": "p",
+            "text": "Olösta trauman kan leda till värk i kroppen och upprepade skador. Genom samtal kan du bearbeta olika typer av problematik såsom värk i kroppen, stress, utbrändhet. Andra anledningar att söka samtalsterapi är depression, sorg, relationsproblem, sorg, livskriser, oro och ångest eller allmän nyfikenhet på dig själv."
+          },
+          {
+            "kind": "p",
+            "text": "Samtalsterapi kan ge dig en förståelse vad din historia har gjort med dig, hur din bakgrund och dina erfarenheter i livet har format dig och ditt liv. Du får en förståelse om varför du reagerar som du gör och upprepar mönster, om och om igen. Med samtalsterapin kan du utan dömande lära känna dig själv på nytt, få perspektiv på ditt liv. Du upptäcker din syn på dig själv och på omvärlden och det ger dig möjlighet till nya val i livet."
+          },
+          {
+            "kind": "h",
+            "text": "Familjekonstellationer"
+          },
+          {
+            "kind": "p",
+            "text": "Familjekonstellationer är kraftfull och erfarenhetsbaserad terapeutisk metod för att reda ut bakomliggande orsaker till personliga problem, psykisk och fysisk ohälsa. Svårlöst dynamik och invecklade relationsmönster görs synliga."
+          },
+          {
+            "kind": "p",
+            "text": "Den är utvecklad av den tyske filosofen och familjeterapeuten Bert Hellinger. Metoden har sin grund i bl a fenomenologi, strukturell familjeterapi, anknytningsbaserad terapi, psykodrama och lösningsfokuserad terapi. Det är en internationellt etablerad metod."
+          },
+          {
+            "kind": "p",
+            "text": "Läs mer på: www.hellinger.com/en/family-constellation/"
+          }
+        ],
+        "type": "rich-text"
+      },
+      "tone": "light"
+    },
+    {
+      "pageTmpId": "home",
+      "type": "statement",
+      "variant": "centered",
+      "content": {
+        "text": "“You can’t stop the waves but you can learn how to surf”",
+        "attribution": "- Jon Kabat-Zinn",
+        "type": "statement"
+      },
+      "tone": "light"
+    },
+    {
+      "pageTmpId": "home",
+      "type": "pricing",
+      "variant": "two-col",
+      "anchorId": "pricing",
+      "content": {
+        "heading": "Priser",
+        "currency": "kr",
+        "tiers": [
+          {
+            "name": "Första samtalet (Nya kunder)",
+            "price": "575",
+            "features": [
+              "Vi möts för ett eller fler inledande samtal och bestämmer sedan en fortsättning. Första samtalet kostar halva priset."
+            ]
+          },
+          {
+            "name": "Samtalsterapi",
+            "price": "1150",
+            "period": "/tim",
+            "features": [
+              "Samtalen varar i 45 minuter och vi ses normalt en gång i veckan. Mottagningen ligger centralt i Stockholm, på Luntmakargatan."
+            ]
+          }
+        ],
+        "type": "pricing"
+      },
+      "tone": "light"
+    },
+    {
+      "pageTmpId": "home",
+      "type": "rich-text",
+      "variant": "narrow",
+      "anchorId": "about",
+      "content": {
+        "heading": "Om mig",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "Jag heter Anna Hedin och har över 30 års erfarenhet av personlig utveckling och möten med människor i livsförändring och har under lång tid assisterat terapeutiska grupper, både i Sverige och internationellt. Min egen mångåriga erfarenhet av psykoterapi och andra grupper har gett mig en förståelse vad min historia har gjort med mig, hur min bakgrund och mina erfarenheter i livet har format mig och mitt liv. Dessa erfarenheter ger mig en tillgång i arbetet som terapeut och en ödmjukhet inför andra människor. Närvaro, utforskande, nyfikenhet och lyhördhet präglar mitt sätt att arbeta. Som legitimerad sjuksköterska har jag tystnadsplikt. Jag går regelbundet i handledning och vidareutbildar mig."
+          },
+          {
+            "kind": "p",
+            "text": "Utbildningar:"
+          },
+          {
+            "kind": "ul",
+            "items": [
+              "Legitimerad sjuksköterska, med arbete i Sverige, Norge och Schweiz",
+              "Psykoterapeututbildning, psykodynamisk inriktning (Steg 1) med en humanvetenskaplig existentiell syn på människan, Ersta Sköndal Högskola, 2016",
+              "Det existentiella samtalet, 30P, Södertörns Högskola 2018"
+            ]
+          },
+          {
+            "kind": "p",
+            "text": "Övrigt:"
+          },
+          {
+            "kind": "ul",
+            "items": [
+              "Cerifierad Coach enligt ICC",
+              "Holistic Counsellor, Working with People, Italien (SIAF-legitimering EU)",
+              "Somatic Experiencing Practitioner (SE, Trauma Healing)",
+              "Family Constellation Training, Roma/Italy 2018/19",
+              "Workshops och diplomutbildningar, bl a Training for Life, The Work, Mindfulness, Counselling samt Path of Love Retreat."
+            ]
+          }
+        ],
+        "type": "rich-text"
+      },
+      "tone": "light"
+    },
+    {
+      "pageTmpId": "home",
+      "type": "image",
+      "variant": "inset",
+      "content": {
+        "image": {
+          "assetId": "portrait",
+          "alt": "Anna Hedin"
+        },
+        "type": "image"
+      },
+      "tone": "light"
+    },
+    {
+      "pageTmpId": "home",
+      "type": "contact",
+      "variant": "info-cards",
+      "anchorId": "kontakt",
+      "content": {
+        "heading": "kontakta mig",
+        "intro": "Jag finns på MötesRum i centrala Stockholm. Välkommen att kontakta mig genom:",
+        "fields": [],
+        "submitLabel": "Skicka",
+        "successMessage": "Tack! Jag återkommer så snart jag kan.",
+        "address": {
+          "street": "Luntmakargatan 52",
+          "city": "Stockholm",
+          "country": "Sverige"
+        },
+        "infoItems": [
+          {
+            "icon": "mail",
+            "title": "E-post",
+            "description": "",
+            "cta": {
+              "label": "annahedin.samtal@gmail.com",
+              "target": {
+                "kind": "email",
+                "value": "annahedin.samtal@gmail.com"
+              },
+              "style": "ghost"
+            }
+          },
+          {
+            "icon": "phone",
+            "title": "Telefon",
+            "description": "",
+            "cta": {
+              "label": "+46 708 17 89 84",
+              "target": {
+                "kind": "phone",
+                "value": "+46708178984"
+              },
+              "style": "ghost"
+            }
+          },
+          {
+            "icon": "users",
+            "title": "Facebook",
+            "description": "",
+            "cta": {
+              "label": "Följ mig på Facebook",
+              "target": {
+                "kind": "external",
+                "url": "https://www.facebook.com/annahedinsamtalsterapeut"
+              },
+              "style": "ghost"
+            }
+          },
+          {
+            "icon": "pin",
+            "title": "mötesrum",
+            "description": "T-bana Rådmansgatan",
+            "cta": {
+              "label": "Luntmakargatan 52",
+              "target": {
+                "kind": "external",
+                "url": "https://g.co/kgs/q11qsAU"
+              },
+              "style": "ghost"
+            }
+          }
+        ],
+        "type": "contact"
+      },
+      "tone": "light"
+    },
+    {
+      "pageTmpId": "home",
+      "type": "footer",
+      "variant": "contact",
+      "content": {
+        "businessName": "Anna Hedin – Samtalsterapeut",
+        "tagline": "Terapeut & Livscoach",
+        "contactLine": "annahedin.samtal@gmail.com · +46 708 17 89 84 · Luntmakargatan 52, Stockholm",
+        "type": "footer"
+      },
+      "tone": "light"
+    }
+  ],
+  "fonts": [
+    {
+      "tmpId": "heading",
+      "source": "adobe",
+      "family": "din-condensed",
+      "adobeKitId": "wyt4frb"
+    },
+    {
+      "tmpId": "body",
+      "source": "adobe",
+      "family": "calluna",
+      "adobeKitId": "wyt4frb"
+    }
+  ],
+  "fontsAssignment": {
+    "headingTmpId": "heading",
+    "bodyTmpId": "body"
+  },
+  "assets": [
+    {
+      "exportId": "hero",
+      "url": "bundle://hero",
+      "width": 2500,
+      "height": 1666,
+      "mimeType": "image/jpeg",
+      "kind": "image",
+      "alt": "Hjärta av trä på stenar vid havet i solnedgång"
+    },
+    {
+      "exportId": "banner",
+      "url": "bundle://banner",
+      "width": 2074,
+      "height": 1383,
+      "mimeType": "image/jpeg",
+      "kind": "image",
+      "alt": "Stilla vatten i soluppgång"
+    },
+    {
+      "exportId": "portrait",
+      "url": "bundle://portrait",
+      "width": 2500,
+      "height": 3333,
+      "mimeType": "image/jpeg",
+      "kind": "image",
+      "alt": "Anna Hedin"
+    },
+    {
+      "exportId": "favicon",
+      "url": "bundle://favicon",
+      "width": 32,
+      "height": 32,
+      "mimeType": "image/png",
+      "kind": "favicon",
+      "alt": "Anna Hedin"
+    },
+    {
+      "exportId": "logo",
+      "url": "bundle://logo",
+      "width": 112,
+      "height": 48,
+      "mimeType": "image/svg+xml",
+      "kind": "logo",
+      "alt": "Anna Hedin"
+    }
+  ]
+}

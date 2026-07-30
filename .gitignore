@@ -1,2 +1,8 @@
 # OpenMemory - IDE/Assistant specific rules
 .cursor/rules/openmemory.mdc
+
+# macOS
+.DS_Store
+
+# Unzipped copy of annahedin-snabbsajt.zip (rebuild with the SDK, see snabbsajt-site/README.md)
+annahedin-snabbsajt/

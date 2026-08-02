@@ -1,7 +1,7 @@
 {
   "format": "sajt-site",
   "version": 1,
-  "exportedAt": "2026-07-29T00:00:00.000Z",
+  "exportedAt": "2026-08-01T00:00:00.000Z",
   "site": {
     "businessName": "Anna Hedin – Samtalsterapeut",
     "vertical": "coach",
@@ -10,7 +10,7 @@
     "theme": {
       "palette": "midnight",
       "fontPair": "modern",
-      "density": "spacious",
+      "density": "comfortable",
       "radius": "sharp",
       "buttonStyle": "solid",
       "appearance": "light",
@@ -18,7 +18,8 @@
       "customBrandHex": "#112032",
       "customFonts": {
         "heading": "din-condensed",
-        "body": "calluna"
+        "body": "calluna",
+        "display": "Open Sans"
       },
       "customPalette": {
         "light": {
@@ -52,11 +53,96 @@
           "cardBorder": "#1c1c1c"
         }
       },
-      "headingCase": "uppercase"
+      "headingCase": "uppercase",
+      "customType": {
+        "display": {
+          "size": "80px",
+          "weight": 700,
+          "lineHeight": 0.8,
+          "tracking": "-2.4px",
+          "transform": "none",
+          "family": "display"
+        },
+        "h1": {
+          "size": "40px",
+          "weight": 300,
+          "lineHeight": 1.2,
+          "tracking": "0px",
+          "transform": "uppercase",
+          "family": "heading"
+        },
+        "h2": {
+          "size": "40px",
+          "weight": 300,
+          "lineHeight": 1.2,
+          "tracking": "0px",
+          "transform": "uppercase",
+          "family": "heading"
+        },
+        "h3": {
+          "size": "24px",
+          "weight": 400,
+          "lineHeight": 1.3,
+          "tracking": "0px",
+          "transform": "uppercase",
+          "family": "heading"
+        },
+        "lead": {
+          "size": "30px",
+          "weight": 300,
+          "lineHeight": 1.6,
+          "tracking": "0px",
+          "transform": "none",
+          "family": "display"
+        },
+        "body": {
+          "size": "16px",
+          "weight": 400,
+          "lineHeight": 1.6,
+          "tracking": "0px",
+          "transform": "none",
+          "family": "body"
+        },
+        "sm": {
+          "size": "14px",
+          "weight": 300,
+          "lineHeight": 1.6,
+          "tracking": "0px",
+          "transform": "none",
+          "family": "heading"
+        },
+        "eyebrow": {
+          "size": "16px",
+          "weight": 400,
+          "lineHeight": 1.6,
+          "tracking": "0px",
+          "transform": "none",
+          "family": "body"
+        },
+        "quote": {
+          "size": "58px",
+          "weight": 600,
+          "lineHeight": 0.95,
+          "tracking": "-1.16px",
+          "transform": "uppercase",
+          "family": "display"
+        }
+      },
+      "customLayout": {
+        "sectionPy": "112px",
+        "containerNarrow": "720px",
+        "containerDefault": "1200px",
+        "containerWide": "1200px",
+        "heroMinVh": 45,
+        "heroMaxHeight": "44rem",
+        "mediaBandMaxHeight": "48rem"
+      },
+      "headingAlign": "center",
+      "motion": "subtle",
+      "navLayout": "right"
     },
     "contact": {
       "email": "annahedin.samtal@gmail.com",
-      "phone": "+46708178984",
       "address": {
         "street": "Luntmakargatan 52",
         "city": "Stockholm",
@@ -66,6 +152,37 @@
     "socials": {
       "facebook": "https://www.facebook.com/annahedinsamtalsterapeut"
     },
+    "navLinks": [
+      {
+        "id": "priser",
+        "label": "Priser",
+        "target": {
+          "kind": "anchor",
+          "anchorId": "pricing"
+        }
+      },
+      {
+        "id": "om-mig",
+        "label": "Om mig",
+        "target": {
+          "kind": "anchor",
+          "anchorId": "about"
+        }
+      },
+      {
+        "id": "kontakt",
+        "label": "Kontakt",
+        "target": {
+          "kind": "email",
+          "value": "annahedin.samtal@gmail.com"
+        }
+      }
+    ],
+    "navOrder": [
+      "link:priser",
+      "link:om-mig",
+      "link:kontakt"
+    ],
     "logoAssetId": "logo",
     "faviconAssetId": "favicon"
   },
@@ -76,7 +193,7 @@
       "slug": "",
       "title": "Anna Hedin - Samtalsterapeut",
       "order": 0,
-      "showInNav": true,
+      "showInNav": false,
       "seo": {
         "metaTitle": "Anna Hedin - Samtalsterapeut",
         "metaDescription": "Samtalsterapi, Somatic Experiencing och familjekonstellationer i centrala Stockholm. Enskilda sessioner för dig som önskar en förändring i livet."
@@ -102,7 +219,7 @@
     {
       "pageTmpId": "home",
       "type": "rich-text",
-      "variant": "prose",
+      "variant": "narrow",
       "content": {
         "heading": "samtalsterapi",
         "blocks": [
@@ -142,7 +259,8 @@
         "blocks": [
           {
             "kind": "h",
-            "text": "Vi möts"
+            "text": "Vi möts",
+            "level": 3
           },
           {
             "kind": "p",
@@ -150,7 +268,8 @@
           },
           {
             "kind": "h",
-            "text": "Somatic Experiencing (SE)"
+            "text": "Somatic Experiencing (SE)",
+            "level": 3
           },
           {
             "kind": "p",
@@ -162,11 +281,27 @@
           },
           {
             "kind": "p",
-            "text": "Läs mer: www.seforeningen.se, www.somaticexperiencing.com"
+            "text": [
+              {
+                "text": "Läs mer: "
+              },
+              {
+                "text": "www.seforeningen.se",
+                "href": "http://www.seforeningen.se"
+              },
+              {
+                "text": ", "
+              },
+              {
+                "text": "www.somaticexperiencing.com",
+                "href": "http://www.somaticexperiencing.com"
+              }
+            ]
           },
           {
             "kind": "h",
-            "text": "samtalsterapi"
+            "text": "samtalsterapi",
+            "level": 3
           },
           {
             "kind": "p",
@@ -178,7 +313,8 @@
           },
           {
             "kind": "h",
-            "text": "Familjekonstellationer"
+            "text": "Familjekonstellationer",
+            "level": 3
           },
           {
             "kind": "p",
@@ -190,7 +326,15 @@
           },
           {
             "kind": "p",
-            "text": "Läs mer på: www.hellinger.com/en/family-constellation/"
+            "text": [
+              {
+                "text": "Läs mer på: "
+              },
+              {
+                "text": "www.hellinger.com/en/family-constellation/",
+                "href": "http://www.hellinger.com/en/family-constellation/"
+              }
+            ]
           }
         ],
         "type": "rich-text",
@@ -200,14 +344,21 @@
     },
     {
       "pageTmpId": "home",
-      "type": "statement",
-      "variant": "centered",
+      "type": "testimonials",
+      "variant": "single",
       "content": {
-        "text": "“You can’t stop the waves but you can learn how to surf”",
-        "attribution": "- JON KABAT-ZINN",
-        "type": "statement"
+        "type": "testimonials",
+        "quotes": [
+          {
+            "text": "You can’t stop the waves but you can learn how to surf",
+            "author": "Jon Kabat-Zinn"
+          }
+        ]
       },
-      "tone": "light"
+      "tone": "light",
+      "layout": {
+        "width": "wide"
+      }
     },
     {
       "pageTmpId": "home",
@@ -216,18 +367,18 @@
       "anchorId": "pricing",
       "content": {
         "heading": "Priser",
-        "currency": "kr",
+        "currency": "",
         "tiers": [
           {
             "name": "Första samtalet (Nya kunder)",
-            "price": "575",
+            "price": "575:-",
             "features": [
               "Vi möts för ett eller fler inledande samtal och bestämmer sedan en fortsättning. Första samtalet kostar halva priset."
             ]
           },
           {
             "name": "samtalsterapi",
-            "price": "1150",
+            "price": "1150:-",
             "period": "/tim",
             "features": [
               "Samtalen varar i 45 minuter och vi ses normalt en gång i veckan. Mottagningen ligger centralt i Stockholm, på Luntmakargatan."
@@ -294,66 +445,59 @@
         },
         "type": "image"
       },
-      "tone": "light"
+      "tone": "light",
+      "layout": {
+        "paddingY": "none"
+      }
     },
     {
       "pageTmpId": "home",
       "type": "contact",
-      "variant": "info-cards",
+      "variant": "links",
       "anchorId": "kontakt",
       "content": {
+        "type": "contact",
+        "eyebrow": ".05",
         "heading": "kontakta mig",
         "intro": "Jag finns på MötesRum i centrala Stockholm. Välkommen att kontakta mig genom:",
         "fields": [],
         "submitLabel": "Skicka",
-        "successMessage": "Tack! Jag återkommer så snart jag kan.",
-        "address": {
-          "street": "Luntmakargatan 52",
-          "city": "Stockholm",
-          "country": "Sverige"
-        },
+        "successMessage": "Tack! Jag hör av mig så snart jag kan.",
         "infoItems": [
           {
-            "icon": "mail",
-            "title": "E-post",
-            "description": "",
+            "title": "",
+            "description": "annahedin.samtal@gmail.com",
             "cta": {
               "label": "annahedin.samtal@gmail.com",
               "target": {
                 "kind": "email",
                 "value": "annahedin.samtal@gmail.com"
-              },
-              "style": "ghost"
+              }
             }
           },
           {
-            "icon": "phone",
-            "title": "Telefon",
-            "description": "",
+            "title": "",
+            "description": "+46 708 17 89 84",
             "cta": {
               "label": "+46 708 17 89 84",
               "target": {
                 "kind": "phone",
                 "value": "+46708178984"
-              },
-              "style": "ghost"
+              }
             }
           },
           {
-            "icon": "users",
-            "title": "Facebook",
-            "description": "",
+            "title": "",
+            "description": "Följ mig på Facebook",
             "cta": {
               "label": "Följ mig på Facebook",
               "target": {
                 "kind": "external",
                 "url": "https://www.facebook.com/annahedinsamtalsterapeut"
-              },
-              "style": "ghost"
+              }
             }
           },
           {
-            "icon": "pin",
             "title": "mötesrum",
             "description": "T-bana Rådmansgatan",
             "cta": {
@@ -361,27 +505,15 @@
               "target": {
                 "kind": "external",
                 "url": "https://g.co/kgs/q11qsAU"
-              },
-              "style": "ghost"
+              }
             }
           }
-        ],
-        "type": "contact",
-        "eyebrow": ".05"
+        ]
       },
-      "tone": "light"
-    },
-    {
-      "pageTmpId": "home",
-      "type": "footer",
-      "variant": "contact",
-      "content": {
-        "businessName": "Anna Hedin – Samtalsterapeut",
-        "tagline": "Terapeut & Livscoach",
-        "contactLine": "annahedin.samtal@gmail.com · +46 708 17 89 84 · Luntmakargatan 52, Stockholm",
-        "type": "footer"
-      },
-      "tone": "light"
+      "tone": "light",
+      "layout": {
+        "paddingY": "compact"
+      }
     }
   ],
   "fonts": [
@@ -396,11 +528,18 @@
       "source": "adobe",
       "family": "calluna",
       "adobeKitId": "wyt4frb"
+    },
+    {
+      "tmpId": "display",
+      "source": "google",
+      "family": "Open Sans",
+      "googleUrl": "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
     }
   ],
   "fontsAssignment": {
     "headingTmpId": "heading",
-    "bodyTmpId": "body"
+    "bodyTmpId": "body",
+    "displayTmpId": "display"
   },
   "assets": [
     {

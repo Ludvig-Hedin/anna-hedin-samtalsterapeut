@@ -7,37 +7,53 @@ Importerbart SnabbSajt-paket byggt från den befintliga Webflow-sidan
 **En bundle:** `../annahedin-snabbsajt-2026-08-02.zip`. Alla tidigare zip-filer
 är borttagna.
 
+## Kort svar: nej, det blir inte 100 %
+
+Layout, typografi, färg, bilder, meny och sektioner ligger mycket nära (se
+tabellen). **Animationerna gör det inte.** Originalet kör Webflows IX2/GSAP:
+fade + blur per element, ett parallax-citat som rör sig i annan takt än sidan,
+och egna scroll-triggers. SnabbSajt har en CSS-baserad reveal per sektion
+(`motion: "full"`) och numera mjuk ankarscroll. Det är likt i känsla, inte
+identiskt – och parallaxen finns inte alls.
+
+Det beror inte på lathet: importen ritar om innehållet med SnabbSajts egna
+sektioner så att sajten går att **redigera**. Vill du ha pixel- och
+animationsidentiskt finns bara en väg – `lib/import/verbatimClone.ts` i
+produktrepot, som packar källans egen HTML/CSS/JS. Den är inte serverad ännu
+(backlog 0939, blockerad av säkerhetsgranskning av tredjeparts-JS) och
+resultatet går inte att redigera efteråt.
+
 ## Uppmätt resultat (2026-08-02)
 
-Paketet är renderat med SnabbSajts riktiga renderare och jämfört band för band
-mot originalet i Chromium (Playwright, tre bredder, animationer avstängda på
-båda sidor). Siffrorna är sidhöjd i px – original → import.
+Paketet renderas med SnabbSajts riktiga renderare och jämförs band för band mot
+originalet i Chromium (Playwright, tre bredder, reveal avstängd på båda sidor).
+Sidhöjd i px – original → import.
 
 | Band | 1440 | 768 | 375 |
 |---|---|---|---|
-| hero | 704 → 704 (0) | 512 → 512 (0) | 450 → 420 (−30) |
-| `.01 samtalsterapi` | 523 → 510 (−13) | 491 → 510 (+19) | 512 → 638 (+126) |
+| hero | 704 → **704** (0) | 512 → **512** (0) | 450 → 405 (−45) |
+| `.01 samtalsterapi` | 523 → 510 (−13) | 491 → 509 (+18) | 512 → 628 (+116) |
 | helbredds-bild | 816 → 768 (−48) | 435 → 512 (+77) | 375 → 250 (−125) |
-| `.02 process` | 1185 → 1056 (−129) | 1437 → 1312 (−125) | 2034 → 2180 (+146) |
-| citat | 400 → 397 (−3) | 394 → 452 (+58) | 277 → 672 (**+395**) |
-| `.03 Priser` | 544 → 535 (−9) | 529 → 535 (+6) | 636 → 741 (+105) |
-| `.04 Om mig` + porträtt | 1734 → 1872 (+138) | 1702 → 1872 (+170) | 1588 → 1821 (+233) |
-| `.05 kontakta mig` | 495 → 486 (−9) | 495 → 486 (−9) | 460 → 511 (+51) |
-| **Hela sidan** | **6402 → 6584 (+2,8 %)** | **6068 → 6447 (+6,2 %)** | **6404 → 7484 (+16,9 %)** |
+| `.02 process` | 1185 → 1056 (−129) | 1437 → 1297 (−140) | 2034 → 2106 (+72) |
+| citat | 400 → **397** (−3) | 394 → 423 (+29) | 277 → 372 (+95) |
+| `.03 Priser` | 544 → 522 (−22) | 529 → 544 (+15) | 636 → 729 (+93) |
+| `.04 Om mig` + porträtt | 1734 → 1782 (+48) | 1702 → 1782 (+80) | 1588 → 1722 (+134) |
+| `.05 kontakta mig` | 495 → 486 (−9) | 495 → 485 (−10) | 460 → 502 (+42) |
+| **Hela sidan** | **6402 → 6482 (+1,2 %)** | **6068 → 6323 (+4,2 %)** | **6404 → 6964 (+8,7 %)** |
 
-Typografin matchar exakt på desktop – varje rubrik verifierad på storlek,
-vikt, familj och versalisering:
+Typografin är **exakt** på alla tre bredder – storlek, vikt, familj och
+versalisering mätt på renderad DOM:
 
-| Element | Original | Import |
-|---|---|---|
-| H1 "Anna Hedin" | Open Sans 700, 80 px | ✅ identisk |
-| H2 sektionsrubriker | din-condensed 300, 40 px, VERSALER | ✅ identisk |
-| H3 i `.02` | din-condensed 400, 24 px, VERSALER | ✅ identisk |
-| Citatet | Open Sans 600, 58 px, VERSALER | ✅ identisk |
-| Brödtext | calluna 400, 16/26 px, `#8c8c92` | ✅ identisk |
-| Textbredd | 672 px (`container-medium`) | ✅ identisk |
+| Roll | 1440 | 768 | 375 |
+|---|---|---|---|
+| H1 "Anna Hedin" | 80 → 80 | 60 → 60 | 40 → 40 |
+| Sektionsrubrik H2 | 40 → 40 | 40 → 40 | 32 → 32 |
+| Citat | 58 → 58 | 48 → 48 | 30 → 30 |
+| Brödtext | 16 → 16 | 16 → 16 | 16 → 16 |
+| Textbredd | 672 → 672 | 672 → 672 | 338 → 327 |
 
-**Det är inte 100 %.** Kvarvarande avvikelser står längst ned, med orsak.
+Navbaren har nu originalets form: länkar till vänster, **VÄLKOMMEN** i mitten,
+en fylld **Kontakt**-knapp till höger.
 
 ## Tema – uppmätt på annahedin.com
 
@@ -117,35 +133,27 @@ open "http://localhost:3000/devpreview?bundle=<absolut-sökväg-till-paket-mapp>
 | porträtt | `image` / `inset` (utan sektionsluft) | – |
 | `.05 kontakta mig` | `contact` / `links` (`#kontakt`) | `.05` |
 
-Menyn ligger i `site.navLinks` (Priser → `#pricing`, Om mig → `#about`,
-Kontakt → mailto) och sidan står `showInNav: false`, precis som originalet:
-inget "Hem" i menyn.
+Menyn ligger i `site.navLinks` (Priser → `#pricing`, Om mig → `#about`) och
+sidan står `showInNav: false`, precis som originalet: inget "Hem" i menyn.
+Kontakt-knappen i headern kommer från `site.contact.email`.
 
 ## Kvarvarande avvikelser
 
-Rangordnade efter hur mycket de syns.
-
-1. **Citatet på mobil (+395 px).** Originalet skalar ner `.parallax-heading`
-   vid brytpunkter; SnabbSajts uppmätta typografi lagrar **en** storlek per
-   roll, så 58 px gäller även på en telefon. Detta är hela mobilavvikelsen
-   (+16,9 %) nästan på egen hand. Åtgärd: `customType.<roll>.sizeMin` så en
-   mätning kan bära ett spann i stället för ett tal.
-2. **Navbaren.** Originalet har länkar till vänster, ordbilden centrerad och en
-   fylld **Kontakt**-knapp till höger. `SiteNav` kan bara logotyp / länkar /
-   telefonknapp; ingen `navLayout` ger den formen, och det finns ingen
-   mailto-knapp i headern. Paketet använder `navLayout: "right"`.
-3. **Priskorten.** Originalet skriver namn → beskrivning → pris. SnabbSajt
-   skriver namn → pris → punktlista med bockar. Priserna står nu rätt
-   (`575:-`, `1150:- /tim`), men ordningen och bockarna skiljer.
-4. **`.04 Om mig` + porträtt (+138 px).** Originalet har text och bild i
-   *samma* sektion; här är de två sektioner. Porträttets sektionsluft är
-   nollställd, men fogen är kvar.
-5. **H3 24 px i stället för 20 px** på prisrubriker och "mötesrum" – originalet
-   har två små rubrikstorlekar (24 och 20), temat har en.
-6. **Open Sans 300 finns inte** i den kurerade Google-listan (400/600/700).
-   Hero-underrubriken begär vikt 300 och renderas som 400.
-7. **Webflow-animationerna** (GSAP/ScrollTrigger, parallax på citatet) ingår
-   inte; `motion: "subtle"` är närmaste motsvarighet.
+1. **Animationerna.** Se det korta svaret överst. Ingen parallax, ingen
+   per-element blur; SnabbSajt har en reveal per sektion.
+2. **Navbaren ligger i flödet.** Originalets navbar svävar över hero-bilden på
+   desktop (hero börjar på y=0); SnabbSajts är sticky och puttar ner sidan
+   ~65 px.
+3. **Helbredds-bilden på mobil.** Originalet byter till kvadrat (`aspect-ratio: 1`)
+   under 768 px; vi kör fotots egen proportion, alltså lägre (250 mot 375 px).
+4. **`.02 process` är ~130 px kortare** på desktop – Webflows radavstånd i
+   rutnätet är större än vårt.
+5. **H3 24 px i stället för 20 px** på "mötesrum" – originalet har två små
+   rubrikstorlekar (24 och 20), temat har en.
+6. **Hero-rubrikens färg** är `#161616` mot originalets `#112032`; originalet
+   sätter en egen textfärg just på hero-sektionen.
+7. **Open Sans 300 finns inte** i den kurerade Google-listan (400/600/700), så
+   hero-underrubriken renderas som 400.
 8. Stavfelet "Cerifierad Coach enligt ICC" är kvar ordagrant från originalet.
 
 ## Varför inte 100 %

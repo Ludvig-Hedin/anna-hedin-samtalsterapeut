@@ -61,7 +61,9 @@
           "lineHeight": 0.8,
           "tracking": "-2.4px",
           "transform": "none",
-          "family": "display"
+          "family": "display",
+          "sizeMin": "40px",
+          "sizeFluid": "7.8cqw"
         },
         "h1": {
           "size": "40px",
@@ -69,7 +71,9 @@
           "lineHeight": 1.2,
           "tracking": "0px",
           "transform": "uppercase",
-          "family": "heading"
+          "family": "heading",
+          "sizeMin": "32px",
+          "sizeFluid": "5.2cqw"
         },
         "h2": {
           "size": "40px",
@@ -77,7 +81,9 @@
           "lineHeight": 1.2,
           "tracking": "0px",
           "transform": "uppercase",
-          "family": "heading"
+          "family": "heading",
+          "sizeMin": "32px",
+          "sizeFluid": "5.2cqw"
         },
         "h3": {
           "size": "24px",
@@ -93,7 +99,9 @@
           "lineHeight": 1.6,
           "tracking": "0px",
           "transform": "none",
-          "family": "display"
+          "family": "display",
+          "sizeMin": "17.6px",
+          "sizeFluid": "3.13cqw"
         },
         "body": {
           "size": "16px",
@@ -125,7 +133,9 @@
           "lineHeight": 0.95,
           "tracking": "-1.16px",
           "transform": "uppercase",
-          "family": "display"
+          "family": "display",
+          "sizeMin": "30px",
+          "sizeFluid": "6.25cqw"
         }
       },
       "customLayout": {
@@ -138,8 +148,8 @@
         "mediaBandMaxHeight": "48rem"
       },
       "headingAlign": "center",
-      "motion": "subtle",
-      "navLayout": "right"
+      "motion": "full",
+      "navLayout": "brand-center"
     },
     "contact": {
       "email": "annahedin.samtal@gmail.com",
@@ -168,20 +178,11 @@
           "kind": "anchor",
           "anchorId": "about"
         }
-      },
-      {
-        "id": "kontakt",
-        "label": "Kontakt",
-        "target": {
-          "kind": "email",
-          "value": "annahedin.samtal@gmail.com"
-        }
       }
     ],
     "navOrder": [
       "link:priser",
-      "link:om-mig",
-      "link:kontakt"
+      "link:om-mig"
     ],
     "logoAssetId": "logo",
     "faviconAssetId": "favicon"
@@ -372,17 +373,15 @@
           {
             "name": "Första samtalet (Nya kunder)",
             "price": "575:-",
-            "features": [
-              "Vi möts för ett eller fler inledande samtal och bestämmer sedan en fortsättning. Första samtalet kostar halva priset."
-            ]
+            "features": [],
+            "description": "Vi möts för ett eller fler inledande samtal och bestämmer sedan en fortsättning. Första samtalet kostar halva priset."
           },
           {
             "name": "samtalsterapi",
             "price": "1150:-",
             "period": "/tim",
-            "features": [
-              "Samtalen varar i 45 minuter och vi ses normalt en gång i veckan. Mottagningen ligger centralt i Stockholm, på Luntmakargatan."
-            ]
+            "features": [],
+            "description": "Samtalen varar i 45 minuter och vi ses normalt en gång i veckan. Mottagningen ligger centralt i Stockholm, på Luntmakargatan."
           }
         ],
         "type": "pricing",
@@ -432,7 +431,10 @@
         "type": "rich-text",
         "eyebrow": ".04"
       },
-      "tone": "light"
+      "tone": "light",
+      "layout": {
+        "paddingY": "compact"
+      }
     },
     {
       "pageTmpId": "home",
